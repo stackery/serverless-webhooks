@@ -44,6 +44,9 @@ Resources:
             Path: /webhook
             Method: POST
             RestApiId: !Ref api64F04294
+      Environment:
+        Variables:
+          GITHUB_WEBHOOK_SECRET: !Ref StackeryEnvConfiggithubSecretAsString
     Metadata:
       StackeryName: handleWebhook
 Parameters:
@@ -56,3 +59,9 @@ Parameters:
   StackeryEnvironmentAPIGatewayStageName:
     Type: String
     Description: Environment name used for API Gateway Stage names (injected by Stackery at deployment time)
+  StackeryEnvConfiggithubSecretAsString:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /Stackery/Environments/<StackeryEnvId>/Config/githubSecret
+Metadata:
+  StackeryEnvConfigParameters:
+    StackeryEnvConfiggithubSecretAsString: githubSecret
