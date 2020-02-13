@@ -1,6 +1,11 @@
 {
+  "name": "handlewebhook",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
     "aws-sdk": "~2"
   }
 }
